@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: messaging
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./server/src/db/schema.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d messaging"]
+      interval: 2s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./server
+    environment:
+      DATABASE_URL: postgres://app:app@db:5432/messaging
+      SESSION_SECRET: secret
+      PORT: 4000
+      CORS_ORIGIN: http://localhost:8080
+    ports:
+      - "4000:4000"
+    #Wait for db container to be ready for connection
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./client
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
