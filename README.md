@@ -17,9 +17,9 @@ incognito, so `localStorage` sessions don't collide) at
 user ids (shown after login), and use "start conversation" with the
 other user's id in each window.
 
-<img width="1438" height="819" alt="Screenshot 2026-10-02 at 10 19 51 AM" src="https://github.com/user-attachments/assets/1001a809-fc17-4996-b4e3-171ec3324917" />
-
 <img width="718" height="810" alt="Screenshot 2026-10-02 at 10 21 58 AM" src="https://github.com/user-attachments/assets/fb56eb4b-2cb3-4088-8abc-ec933b67a14f" />
+
+<img width="1438" height="819" alt="Screenshot 2026-10-02 at 10 19 51 AM" src="https://github.com/user-attachments/assets/1001a809-fc17-4996-b4e3-171ec3324917" />
 
 <img width="1080" height="608" alt="2026-10-02 10-20-42" src="https://github.com/user-attachments/assets/abde5616-a1fd-4dab-97ae-61002fdc46a2" />
 
