@@ -72,7 +72,6 @@ other user's id in each window.
 
 ## What I'd do next with more time
 
-- Redis-backed pub/sub for horizontal scaling of the WS layer.
 - Proper incremental reconnect-sync (track per-conversation high-water
   mark, wire into `WsClient`'s `onopen`).
 - Read receipts, typing indicators.
