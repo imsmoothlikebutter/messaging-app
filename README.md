@@ -54,13 +54,7 @@ other user's id in each window.
   locally-generated `clientTempId`, then reconciles it with the real
   `messageId` once the server's ack arrives.
 
-## Known limitations (deliberate MVP scope, not oversights)
-
-- **Single backend instance only.** The connection registry lives in
-  one process's memory. Running multiple backend replicas behind a
-  load balancer would need a shared relay (Redis pub/sub, or Postgres
-  `LISTEN/NOTIFY`) so a push from one instance reaches a user connected
-  to a different instance — not implemented here.
+## Current known limitations
 - **No read receipts** — sent/delivered only.
 - **Reconnect-sync is simplified.** `sync` always requests from
   `sinceId: 0` (full history) rather than tracking the highest message
